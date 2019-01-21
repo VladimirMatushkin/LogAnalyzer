@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Анализатор логов</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script type="text/javascript" src="ajax.js"></script>
+	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+	<script>
+		google.charts.load('current', {'packages':['corechart']});
+	</script>
+      
+</head>
+<body onload="Init()">
+	<div class="header">
+		<h1>Анализатор логов</h1>
+	</div>
+	<div class="main">
+		<h2>Отчеты</h2>
+		
+		<button class="collapsible">1. Посетители из какой страны совершают больше всего действий на сайте?</button>
+		<div class="content" id="r1">
+			Период<br><br>
+			<label>От</label>
+			<input id="r1DFrom" type="date">
+			<label>До</label>
+			<input id="r1DTo" type="date">
+			<button id="r1Btn" onClick="sendRequest(1)">Сгенерировать отчет</button>
+			<div id="r1PieChart"></div>
+		</div>
+		<button class="collapsible">2. Посетители из какой страны чаще всего интересуются товарами из определенных категорий?</button>
+		<div class="content">
+			<label>Категория</label>
+			<select id="r2Category"></select>
+			<button id="r2Btn" onClick="sendRequest(2)">Сгенерировать отчет</button>
+			<div id="r2PieChart"></div>
+		</div>
+		<button class="collapsible">7. Какое количество пользователей совершали повторные покупки за определенный период?</button>
+		<div class="content">
+			Период<br><br>
+			<label>От</label>
+			<input id="r7DFrom" type="date">
+			<label>До</label>
+			<input id="r7DTo" type="date">
+			<button id="r7Btn" onClick="sendRequest(7)">Сгенерировать отчет</button>
+			<div id="r7PieChart" style="padding: 15px"></div>
+		</div>
+	</div>	
+	
+<script>
+var coll = document.getElementsByClassName("collapsible");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.display === "block") {
+      content.style.display = "none";
+    } else {
+      content.style.display = "block";
+    }
+  });
+}
+</script>
+</body>
+</html>
