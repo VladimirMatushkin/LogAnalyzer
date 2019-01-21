@@ -30,5 +30,5 @@ SET u.Country = (SELECT ip.country_name
 ``` 
 ---
 WebApp - сайт для работы с бд.
-Запускался на xampp 7.3.0-0
+Запускался на xampp 7.3.0
 БД - MariaDB
